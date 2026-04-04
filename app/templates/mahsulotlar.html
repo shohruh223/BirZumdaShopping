@@ -62,16 +62,20 @@
             </aside>
             <div class="shop-main">
                 <form class="shop-header">
-                    <div class="shop-search"><i class="fa-solid fa-search"></i><input type="text"
-                                                                                      placeholder="Model yoki nomini kiriting...">
+                    <div class="shop-search"><i class="fa-solid fa-search"></i>
+                        <input type="text"
+                               placeholder="Model yoki nomini kiriting..." name="q">
                         <button type="submit" class="shop-search-btn" aria-label="Qidirish"><i
                                 class="fa-solid fa-search"></i></button>
                     </div>
-                    <div class="shop-sort"><select>
-                        <option>Arzonroq</option>
-                        <option>Qimmatroq</option>
-                        <option>Yangiroq</option>
-                    </select></div>
+                    <div class="shop-sort">
+                        <select name="sort" onchange="this.form.submit()">
+                            <option>Sortlash</option>
+                            <option value="price_asc">Arzonroq</option>
+                            <option value="price_desc">Qimmatroq</option>
+                            <option>Yangiroq</option>
+                        </select>
+                    </div>
                 </form>
 
 
@@ -84,7 +88,8 @@
                                     alt="iPhone 15 Pro Max"></a>
                             <div class="product-info">
                                 <div class="product-category">{{ product.category }}</div>
-                                <h3 class="product-title"><a href="{% url 'mahsulotlar-detail' product.id %}">{{ product.title }}</a></h3>
+                                <h3 class="product-title"><a
+                                        href="{% url 'mahsulotlar-detail' product.id %}">{{ product.title }}</a></h3>
                                 <div class="product-rating">
                                     <div class="rating-stars"><i class="fa-solid fa-star"></i><i
                                             class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
