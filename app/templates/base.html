@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bir Zumda - Register</title>
+    <title>Bir Zumda - Bosh sahifa</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap"
           rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -15,11 +15,17 @@
     <div class="container navbar">
         <a href="index.html" class="logo"><i class="fa-solid fa-bolt"></i> Bir Zumda</a>
         <ul class="nav-links" id="nav-links">
-            <li><a href="index.html">Bosh sahifa</a></li>
-            <li><a href="mahsulotlar.html">Mahsulotlar</a></li>
-            <li><a href="blog.html">Blog</a></li>
-            <li><a href="biz-haqimizda.html">Biz haqimizda</a></li>
-            <li><a href="aloqa.html">Aloqa</a></li>
+            {% if request.user.is_authenticated %}
+                <li><a href="{% url 'index' %}">Bosh sahifa</a></li>
+                <li><a href="{% url 'mahsulotlar' %}">Mahsulotlar</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="biz-haqimizda.html">Biz haqimizda</a></li>
+                <li><a href="aloqa.html">Aloqa</a></li>
+                <li><a href="{% url 'logout' %}">Logout</a></li>
+            {% else %}
+                <li><a href="{% url 'register' %}">Register</a></li>
+                <li><a href="{% url 'login' %}">Login</a></li>
+            {% endif %}
         </ul>
         <div class="nav-icons">
             <a href="#" id="theme-toggle" title="Tungi rejim"><i class="fa-solid fa-moon"></i></a>
@@ -27,48 +33,17 @@
             <a href="login.html" title="Shaxsiy kabinet"><i class="fa-regular fa-user"></i></a>
             <a href="savatcha.html" style="position: relative;">
                 <i class="fa-solid fa-cart-shopping"></i>
-                <span class="cart-badge" id="cart-badge-count">0</span>
+                <span class="cart-badge" id="cart-badge-count">2</span>
             </a>
             <div class="mobile-toggle" id="mobile-menu-btn"><i class="fa-solid fa-bars-staggered"></i></div>
         </div>
     </div>
 </header>
 
-<main class="page-section">
-    <div class="container auth-wrapper">
-        <div class="auth-card">
-            <h1>Ro'yxatdan o'tish</h1>
-            <p class="subtitle">Yangi hisob yarating va qulay xaridlarni boshlang</p>
-            <form data-toast="Tasdiqlash kodi email pochtangizga yuborildi!" data-redirect="confirm-password.html"
-                  action="{% url 'register' %}" method="post">
-                {% csrf_token %}
-                <div class="form-group mb-2">
-                    <label>Ism va Familiya</label>
-                    <input type="text" required placeholder="To'liq ismingiz" name="first_name">
-                </div>
-                <div class="form-group mb-2">
-                    <label>Email manzilingiz</label>
-                    <input type="email" required placeholder="misol@gmail.com" name="email">
-                </div>
-                <div class="form-group mb-2">
-                    <label>Parol</label>
-                    <input type="password" required placeholder="Eng kamida 8 ta belgi" name="password1">
-                </div>
-                <div class="form-group mb-2">
-                    <label>Parolni tasdiqlang</label>
-                    <input type="password" required placeholder="Parolni qayta kiriting" name="password2">
-                </div>
-                <button type="submit" class="btn btn-accent"
-                        style="width:100%; margin-top:10px; font-size:1.1rem; padding:14px;">Ro'yxatdan o'tish
-                </button>
-            </form>
+{% block content %}
 
-            <div class="auth-divider">yoki</div>
-            <p class="text-center" style="color: var(--text-gray); font-size: 0.95rem;">Allaqachon hisobingiz bormi? <a
-                    href="{% url 'login' %}" class="auth-link" style="margin-top: 0;">Tizimga kirish</a></p>
-        </div>
-    </div>
-</main>
+{% endblock content %}
+
 <footer>
     <div class="container">
         <div class="footer-grid">
