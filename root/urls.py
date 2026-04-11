@@ -1,8 +1,8 @@
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path
-
-from app.views import IndexView, MahsulotlarView, MahsulotlarDetailView, RegisterView, UserLoginView, UserLogoutView
+from app.views.others import IndexView, MahsulotlarView, MahsulotlarDetailView
+from app.views.auth import RegisterView, UserLoginView, UserLogoutView, VerifyEmailView
 from root import settings
 
 urlpatterns = [
@@ -16,4 +16,5 @@ urlpatterns = [
     path('register/', RegisterView.as_view(), name='register'),
     path('login/', UserLoginView.as_view(), name='login'),
     path('logout/', UserLogoutView.as_view(), name='logout'),
+    path('verify/', VerifyEmailView.as_view(), name='verify-email'),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
