@@ -142,8 +142,8 @@ EMAIL_HOST = "smtp.gmail.com"
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 
-EMAIL_HOST_USER = "shohruh.abd2223@gmail.com"
-EMAIL_HOST_PASSWORD = "iytv cxlz ekio qlpm"
+EMAIL_HOST_USER = "shohruh.abd1997@gmail.com"
+EMAIL_HOST_PASSWORD = "cykc ktrp bqru dmbq"
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
 

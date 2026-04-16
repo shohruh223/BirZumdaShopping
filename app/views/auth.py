@@ -8,6 +8,7 @@ from app.form import RegisterForm, EmailLoginForm
 from app.utils import generate_code, send_register_email
 from django.contrib.auth import get_user_model
 
+
 User = get_user_model()
 
 
@@ -45,18 +46,18 @@ class UserLogoutView(View):
         return redirect("login")
 
 
-class VerifyEmailView(View):
+class VerifyEmailView(TemplateView):
     template_name = "confirm-password.html"
 
-    def get(self, request):
-        return render(request, self.template_name)
+    def post(self, request, *args, **kwargs):
+        if request.POST.get("code") != request.session.get("verify_code"):
+            return redirect("verify-email")
 
-    def post(self, request):
-        if request.POST.get("code") == request.session.get("verify_code"):
-            user = User.objects.get(id=request.session.get("verify_user_id"))
-            user.is_active = True
-            user.save()
-            request.session.pop("verify_code")
-            request.session.pop("verify_user_id")
-            return redirect("login")
-        return render(request, self.template_name)
+        user = User.objects.get(id=request.session["verify_user_id"])
+        user.is_active = True
+        user.save()
+
+        request.session.pop("verify_code", None)
+        request.session.pop("verify_user_id", None)
+        return redirect("login")
+
