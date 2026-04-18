@@ -13,3 +13,5 @@ def send_register_email(to_email, code):
     from_email = DEFAULT_FROM_EMAIL
 
     send_mail(subject, message, from_email, [to_email])
+
+# asda
