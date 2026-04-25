@@ -3,6 +3,7 @@ from django.contrib import admin
 from django.urls import path
 
 from app.views.auth_forgot import ForgotPasswordView, ResetPasswordView
+from app.views.cart import AddToCartView, SavatchaView
 from app.views.others import IndexView, MahsulotlarView, MahsulotlarDetailView
 from app.views.auth import RegisterView, UserLoginView, UserLogoutView, VerifyEmailView
 from root import settings
@@ -23,5 +24,8 @@ urlpatterns = [
     # forgot password
     path('forgot-password/', ForgotPasswordView.as_view(), name='forgot-password'),
     path('reset-password/', ResetPasswordView.as_view(), name='reset-password'),
+
+    path('add-to-cart/<int:pk>/', AddToCartView.as_view(), name='add-to-cart'),
+    path('savatcha/', SavatchaView.as_view(), name='savatcha'),
 
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

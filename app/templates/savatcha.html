@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bir Zumda - Savatcha</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
 <header>
@@ -46,7 +47,9 @@
                 </div>
 
                 <div class="cart-item">
-                    <a href="mahsulot-detail.html" class="cart-item-image"><img src="https://images.unsplash.com/photo-1592750475338-74b7b21085ab?auto=format&fit=crop&w=800&q=80" alt="iPhone 15 Pro Max"></a>
+                    <a href="mahsulot-detail.html" class="cart-item-image"><img
+                            src="https://images.unsplash.com/photo-1592750475338-74b7b21085ab?auto=format&fit=crop&w=800&q=80"
+                            alt="iPhone 15 Pro Max"></a>
                     <div class="cart-item-info">
                         <span class="product-category">Smartfonlar</span>
                         <h3><a href="mahsulot-detail.html">iPhone 15 Pro Max</a></h3>
@@ -54,11 +57,14 @@
                     </div>
                     <div class="cart-item-qty">1 dona</div>
                     <div class="cart-item-subtotal">12 999 000 so'm</div>
-                    <a class="cart-remove" href="mahsulotlar.html" title="Mahsulotlar"><i class="fa-solid fa-arrow-left"></i></a>
+                    <a class="cart-remove" href="mahsulotlar.html" title="Mahsulotlar"><i
+                            class="fa-solid fa-arrow-left"></i></a>
                 </div>
 
                 <div class="cart-item">
-                    <a href="mahsulot-detail.html" class="cart-item-image"><img src="https://images.unsplash.com/photo-1517336714739-489689fd1ca8?auto=format&fit=crop&w=900&q=80" alt="MacBook Air M3"></a>
+                    <a href="mahsulot-detail.html" class="cart-item-image"><img
+                            src="https://images.unsplash.com/photo-1517336714739-489689fd1ca8?auto=format&fit=crop&w=900&q=80"
+                            alt="MacBook Air M3"></a>
                     <div class="cart-item-info">
                         <span class="product-category">Noutbuklar</span>
                         <h3><a href="mahsulot-detail.html">MacBook Air M3 13"</a></h3>
@@ -66,7 +72,8 @@
                     </div>
                     <div class="cart-item-qty">1 dona</div>
                     <div class="cart-item-subtotal">15 499 000 so'm</div>
-                    <a class="cart-remove" href="mahsulotlar.html" title="Mahsulotlar"><i class="fa-solid fa-arrow-left"></i></a>
+                    <a class="cart-remove" href="mahsulotlar.html" title="Mahsulotlar"><i
+                            class="fa-solid fa-arrow-left"></i></a>
                 </div>
             </div>
 
@@ -75,7 +82,8 @@
                 <div class="summary-row"><span>Mahsulotlar</span><strong>28 498 000 so'm</strong></div>
                 <div class="summary-row"><span>Yetkazib berish</span><strong>Bepul</strong></div>
                 <div class="summary-total"><span>Jami</span><strong>28 498 000 so'm</strong></div>
-                <a href="checkout.html" class="btn btn-primary" style="width:100%;margin-top:18px;">Checkoutga o'tish</a>
+                <a href="checkout.html" class="btn btn-primary" style="width:100%;margin-top:18px;">Checkoutga
+                    o'tish</a>
             </aside>
         </section>
     </div>
@@ -85,7 +93,8 @@
         <div class="footer-grid">
             <div class="footer-col">
                 <a href="index.html" class="logo"><i class="fa-solid fa-bolt"></i> Bir Zumda</a>
-                <p style="margin-top: 15px;">O'zbekistondagi eng tezkor va ishonchli maishiy texnika xarid qilish platformasi. Orzuingizdagi texnikani bir zumda xarid qiling!</p>
+                <p style="margin-top: 15px;">O'zbekistondagi eng tezkor va ishonchli maishiy texnika xarid qilish
+                    platformasi. Orzuingizdagi texnikani bir zumda xarid qiling!</p>
                 <div class="social-links">
                     <a href="#"><i class="fa-brands fa-instagram"></i></a>
                     <a href="#"><i class="fa-brands fa-telegram"></i></a>
@@ -124,6 +133,6 @@
     </div>
 </footer>
 <div id="toast-container" class="toast-container"></div>
-<script src="assets/js/app.js"></script>
+<script src="{% static 'js/app.js' %}"></script>
 </body>
 </html>
